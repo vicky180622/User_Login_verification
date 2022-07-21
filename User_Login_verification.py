@@ -14,17 +14,18 @@ class login:
         password = input("password should consist at least one special character \nPassword : ")
         password1 = input("Enter your password again : ")
         spec = ['!', '@', '#', '$', '%', '^', '&', '*', '~']
+        q = 0
 
         if name.isalpha():
             if age.isdigit():
                 for i in password:
-                    if i in spec and password == password1:
-                        print("Valid Details")
-                        obj.email()  # Generating emails once the user details are valid.
-                        break
-                    else:
-                        print("Password is not valid or enter the correct password")
-                        break
+                    if i in spec:
+                        q += 1
+                if q > 0 and password == password1:
+                    print("Valid Details")
+                    obj.email()  # Generating emails once the user details are valid.
+                else:
+                    print("password is not valid")
             else:
                 print("Invalid age")
         else:
